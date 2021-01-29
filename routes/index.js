@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Post=require("../models/post");
-
-   
+const Post = require("../models/post");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -10,33 +8,33 @@ router.get("/", function (req, res, next) {
 });
 
 /* create post */
-router.post("/createposts", function (req, res) {
+router.post("/post", function (req, res) {
 	var got = {
-		given_name : req.body.username,
-		given_location : req.body.location,
+		given_name: req.body.username,
+		given_location: req.body.location,
 	};
 	/*console.log(got,req.body)*/
 	var Details = new Post({
-		username : got.given_name,
+		username: got.given_name,
 		location: got.given_location,
 	});
 	Details.save();
-	res.redirect("/dummyposts")
+	res.redirect("/posts");
 });
 
 /* getiing post from db */
-router.get("/dummyposts", function(req, res){
+router.get("/posts", function (req, res) {
 	Post.find()
-	.then(result=>{
-		res.status(200).json({
-			postData:result
+		.then((result) => {
+			res.status(200).json({
+				postData: result,
+			});
+			console.log(result);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json({ error: err });
 		});
-		console.log(result);
-	})
-	.catch(err=>{
-		console.log(err);
-		res.status(500).json({error:err});
-	})
-})
+});
 
 module.exports = router;
