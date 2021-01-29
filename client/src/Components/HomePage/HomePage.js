@@ -3,18 +3,25 @@ import React from "react";
 import "./HomePage.css";
 
 function HomePage() {
-    return (
+	return (
+		<div className="home">
+			<div className="home__body">
+				<img className="home__left" src="/lens-1418954@2x.png" alt="here"></img>
+				{/* takes care of Image arrangement */}
 
-      <div>
-        <div className="left">  {/* takes care of left arrangement */}
-            <img src= "/lens-1418954@2x.png" alt ="" className = 'img'></img>   {/* takes care of Image arrangement */}
-        </div>
-        <div className="right"> {/* takes care of right arrangement */}
-            <h1>10x Team 01</h1>
-            <button>Enter</button> {/* takes care of button */}
-        </div>
-      </div>
+				<div className="home__right">
+					<div>
+						<center>
+							<h1 className="home__right-heading">10x Team 01</h1>
+
+							<button className="home__right-button">Enter</button>
+						</center>
+
+						{/* takes care of button */}
+					</div>
+				</div>
+			</div>
+		</div>
 	);
-	
 }
 export default HomePage;
