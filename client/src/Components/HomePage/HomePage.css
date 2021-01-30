@@ -1,54 +1,61 @@
-button {  
-  width: 102px;
-  height: 45px;
-  margin-top: 36px;
-  margin-right: 578px;
-  margin-left: 256px;
-  margin-bottom: 521px;
-  font: normal normal normal 32px/39px Verdana;
-  letter-spacing: 0px;
-  color: #006238;
-  opacity: 1;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 3px solid #006238;
-  border-radius: 16px;
+.home {
+	display: grid;
+	place-items: center;
+	background-color: #ffffff;
+	height: 100vh;
 }
 
-h1 {
-  width: 346px;
-  height: 71px;
-  margin-top: 401px;
-  margin-left: 126px;
-  margin-bottom: 0;
-  margin-right: 448px;
-  text-align: left;
-  font: normal normal normal 64px/71px Palatino;
-  letter-spacing: 0px;
-  color: #006238;
-  opacity: 1;
+.home__body {
+	display: flex;
+	background-color: #ffffff;
+	height: 90vh;
+	width: 60vw;
+}
+.home__right-button {
+	display: flex;
+	width: 17vh;
+	height: 7vh;
+	padding: 0vh 1vh 1vh 1vh;
+	font: normal normal normal 5vh/6vh Verdana;
+	/* margin-left: 30%; */
+	letter-spacing: 0px;
+	color: #006238;
+	opacity: 1;
+	background: #ffffff;
+	border: 0.5vh solid #006238;
+	border-radius: 2vh;
+	text-align: center;
+}
+
+.home__right-heading {
+	/* width: 346px;
+	height: 71px;
+	margin-top: 401px;
+	margin-left: 126px;
+	margin-bottom: 0;
+	margin-right: 448px;
+	text-align: left; */
+	font: normal normal normal 8vh/12vh Palatino;
+	letter-spacing: 0px;
+	color: #006238;
+	opacity: 1;
+	margin-bottom: 3vh;
 }
 /* Control the left side */
-.left {
-  left: 0;
-  height: 1080px;
-  float: left;
-  width: 1000px;
-  position: relative;
-  /*background-color: #111;*/
+.home__left {
+	flex: 0.5;
+	display: flex;
+	/*background-color: #111;*/
 }
 
 /* Control the right side */
-.right {
-  right: 0;
-  height: 100vh;
-  float: left;
-  width: 50vw;
-}
-
-.img{
-  width :600px;
-  height: 900px;
-  margin-left: 400px;
-  margin-top: 80px;
-   margin-bottom: 100px;
+.home__right {
+	flex: 0.5;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* place-items: center;
+	align-items: center; */
+	padding: 23vh 0vh 0vh 10vh;
 }
