@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./InstagramPage.css";
-import Post from "./Post/Post";
+import Post from "../Post/Post";
 ​
 function InstagramPage() {
 	const [posts, setPosts] = useState([
@@ -9,7 +9,7 @@ function InstagramPage() {
 			location: "Hyderabad",
 			date: Date.now(),
 			description: "Iam srikar"
-			imageUrl: " "
+			imageUrl: "https://www.w3schools.com/howto/img_avatar.png"
         }
 	]);
 ​
