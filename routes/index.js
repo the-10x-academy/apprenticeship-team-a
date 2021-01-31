@@ -10,18 +10,13 @@ router.get("/", function (req, res, next) {
 /* create post */
 router.post("/post", function (req, res) {
 	var got = {
-		given_name: req.body.username,
-		given_location: req.body.location,
-		given_image: req.body.image,
-		given_description: req.body.description,
+		username: req.body.username,
+		location: req.body.location,
+		image: req.body.image,
+		description: req.body.description,
 	};
 	/*console.log(got,req.body)*/
-	var Details = new Post({
-		username: got.given_name,
-		location: got.given_location,
-		image: got.given_image,
-		description: got.given_description,
-	});
+	var Details = new Post(got);
 	Details.save();
 	res.redirect("/posts");
 });
