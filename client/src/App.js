@@ -8,15 +8,15 @@ import {
 } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage";
 import NoPageFound from "./Components/404";
+import InstagramPage from "./Components/InstagramPage/InstagramPage";
 
 function App() {
 	return (
 		<Router>
 			<Switch>
 				<Route exact path="/" component={HomePage} />
-				<Route exact path="/404" component={NoPageFound} />
-
-				<Redirect to="/404" />
+				<Route exact path="/Posts" component={InstagramPage} />
+				<Route path="*" component={NoPageFound} />
 			</Switch>
 		</Router>
 	);

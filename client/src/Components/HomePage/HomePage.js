@@ -1,6 +1,7 @@
 //import logo from "../../logo.svg";
 import React from "react";
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
 	return (
@@ -14,7 +15,9 @@ function HomePage() {
 						<center>
 							<h1 className="home__right-heading">10x Team 01</h1>
 
-							<button className="home__right-button">Enter</button>
+							<Link to="/Posts">
+								<button className="home__right-button">Enter</button>
+							</Link>
 						</center>
 
 						{/* takes care of button */}
