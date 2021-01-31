@@ -6,6 +6,7 @@
 	margin-top: 25px;
 	margin-left: 0px;
 	justify-content: space-between;
+	vertical-align: center;
 }
 
 #insta {
@@ -23,10 +24,12 @@
 }
 
 #camera {
-	display: flex;
-	margin-right: 200px;
 	opacity: 1;
-	height: 45px;
-	width: 45px;
-	margin-top: 15px;
+}
+
+.buttons {
+	border: none;
+	opacity: 1;
+	background: transparent;
+	margin-right: 200px;
 }

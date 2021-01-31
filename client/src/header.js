@@ -10,7 +10,9 @@ function Header() {
 				<img src={icon} id="icon" alt="icon"></img>
 				<text id="logo">Instaclone</text>
 			</div>
-			<img src={camera} id="camera" alt="camera"></img>
+			<button class="buttons" /*onClick="" */>
+				<img src={camera} id="camera" alt="camera"></img>
+			</button>
 		</div>
 	);
 }
