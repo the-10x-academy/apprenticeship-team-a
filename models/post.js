@@ -8,7 +8,14 @@ const postSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	caption: String,
+	image: {
+		type: String,
+		required: true,
+	},
+	description: {
+		type: String,
+		required: true,
+	},
 	timestamp: {
 		type: Date,
 		default: Date.now,
