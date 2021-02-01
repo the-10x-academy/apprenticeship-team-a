@@ -15,7 +15,7 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path="/" component={HomePage} />
-				<Route exact path="/Posts" component={InstagramPage} />
+				<Route exact path="/posts" component={InstagramPage} />
 				<Route path="*" component={NoPageFound} />
 			</Switch>
 		</Router>
