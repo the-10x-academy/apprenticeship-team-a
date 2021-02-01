@@ -9,17 +9,17 @@ import {
 import HomePage from "./Components/HomePage/HomePage";
 import NoPageFound from "./Components/404";
 import UploadPost from "./Components/uploadPost.js/uploadPost";
-import Posts from "./Components/Post/Post";
+import InstagramPage from "./Components/InstagramPage/InstagramPage";
+
 
 function App() { 
 	return (
 		<Router>
 			<Switch>
 				<Route exact path="/" component={HomePage} />
-				<Route exact path ="/posts" component = {Posts}/>
 				<Route exact path ="/posts/create" component = {UploadPost}/>
-				<Route exact path="/404" component={NoPageFound} />
- 				<Redirect to="/404" />
+				<Route exact path="/posts" component={InstagramPage} />
+				<Route path="*" component={NoPageFound} />
 			</Switch>
 		</Router>
 	);
