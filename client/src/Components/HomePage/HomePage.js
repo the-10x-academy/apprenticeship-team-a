@@ -15,7 +15,7 @@ function HomePage() {
 						<center>
 							<h1 className="home__right-heading">10x Team 01</h1>
 
-							<Link to="/Posts">
+							<Link to="/posts">
 								<button className="home__right-button">Enter</button>
 							</Link>
 						</center>
