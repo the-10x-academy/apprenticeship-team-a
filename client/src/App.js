@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./Components/HomePage/HomePage";
 import NoPageFound from "./Components/404";
-import UploadPost from "./Components/uploadPost.js/uploadPost";
+import UploadPost from "./Components/UploadPost/UploadPost";
 import InstagramPage from "./Components/InstagramPage/InstagramPage";
 
 

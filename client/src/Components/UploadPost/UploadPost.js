@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./uploadPost.css";
+import "./UploadPost.css";
 import "./ActivePost";
 import ActivePost from "./ActivePost";
 
