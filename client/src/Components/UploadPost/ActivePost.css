@@ -1,0 +1,44 @@
+.postbutton{
+    width:30%;
+    justify-content: center;
+    display: flex;
+    height : auto;
+    text-align: center;
+    background: #F0F0F0 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    opacity:1;
+    
+}
+
+.postbox{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding-top:3%;
+ padding-bottom:1%;
+ 
+}
+
+.Activepostbutton{
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    height : auto;
+    text-align: center;
+    background: #3554e0 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    opacity:1;
+    color:white;
+    
+}
+
+.Activepost{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding-top:3%;
+ padding-bottom:1%;
+ 
+}
