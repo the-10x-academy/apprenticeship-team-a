@@ -12,7 +12,7 @@ const app = express();
 
 //dbConfig
 mongoose
-	.connect("mongodb://localhost:27017/instagramClone", {
+	.connect("mongodb://localhost:27017/demo", {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
