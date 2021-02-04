@@ -33,7 +33,7 @@ router.get("/post", (req, res) => {
 	});
 });
 
-router.post("/upload", upload.single("image"), (req, res, next) => {
+router.post("/post", upload.single("image"), (req, res, next) => {
 	var obj = {
 		username: req.body.username,
 		description: req.body.description,
