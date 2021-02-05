@@ -30,7 +30,7 @@ function UploadPost() {
 		data.append("username", Author);
 		data.append("location", Location);
 
-		fetch("http://localhost:9000/upload", {
+		fetch("http://localhost:9000/post", {
 			method: "POST",
 			body: data,
 		})
@@ -38,6 +38,13 @@ function UploadPost() {
 			.then((data) => {
 				console.log(data);
 			});
+
+		// setAuthor("");
+		// setFile("");
+		// setFile("");
+		// // setAuthor("");
+		// setLocation("");
+		// setDescription("");
 	};
 
 	return (
