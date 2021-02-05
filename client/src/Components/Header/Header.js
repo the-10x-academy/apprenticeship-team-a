@@ -12,9 +12,7 @@ function Header() {
 				<text id="logo">Instaclone</text>
 			</div>
 			<Link to="/posts/create">
-				<button class="buttons" /*onClick="" */>
-					<img src="/camera.png" id="camera" alt="camera"></img>
-				</button>
+				<img src="/camera.png" id="camera" alt="camera"></img>
 			</Link>
 		</div>
 	);

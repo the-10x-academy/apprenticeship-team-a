@@ -58,7 +58,9 @@ function InstagramPage() {
 						date={post.date}
 					/>
 				))}
-				;
+				<h3>
+					<i>Create Post</i>
+				</h3>
 			</div>
 		</div>
 	);
