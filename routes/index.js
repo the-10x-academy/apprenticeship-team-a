@@ -13,7 +13,7 @@ router.get("/", function (req, res, next) {
 var storage = multer.diskStorage({
 	destination: function (req, file, cb) {
 		// Uploads is the Upload_folder_name
-		cb(null, "uploads");
+		cb(null, "public/uploads");
 	},
 	filename: function (req, file, cb) {
 		cb(null, file.fieldname + "-" + Date.now() + ".jpg");
@@ -34,16 +34,22 @@ router.get("/post", (req, res) => {
 });
 
 router.post("/post", upload.single("image"), (req, res, next) => {
+	var imageFile = req.file.filename;
+	var imagePath = req.file.path.replace("public", "");
+	console.log(imagePath);
 	var obj = {
 		username: req.body.username,
 		description: req.body.description,
 		location: req.body.location,
-		image: {
-			data: fs.readFileSync(
-				path.join(__dirname + "./../uploads/" + req.file.filename),
-			),
-			contentType: "image/png",
-		},
+		image: imagePath,
+		// "../uploads/" + imageFile,
+		// {
+		// 	data: fs.readFileSync(
+		// path.join(__dirname + "./../uploads/" + req.file.filename),
+		// 	),
+		// 	contentType: "image/png",
+		// 	// url: "/" + imageFile,
+		// },
 	};
 	Post.create(obj, (err, item) => {
 		if (err) {

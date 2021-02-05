@@ -17,7 +17,7 @@ mongoose
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
-	.then(() => console.log("connection Successful"))
+	.then(() => console.log("db connection Successful"))
 	.catch((err) => console.log(err));
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

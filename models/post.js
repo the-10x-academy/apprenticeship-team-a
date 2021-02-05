@@ -9,8 +9,11 @@ const postSchema = new mongoose.Schema({
 		required: true,
 	},
 	image: {
-		data: Buffer,
-		contentType: String,
+		// data: Buffer,
+		// contentType: String,
+		// // url: String,
+		type: String,
+		required: true,
 	},
 	description: {
 		type: String,

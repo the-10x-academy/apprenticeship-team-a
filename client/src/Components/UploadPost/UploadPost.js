@@ -38,6 +38,13 @@ function UploadPost() {
 			.then((data) => {
 				console.log(data);
 			});
+
+		// setAuthor("");
+		// setFile("");
+		// setFile("");
+		// // setAuthor("");
+		// setLocation("");
+		// setDescription("");
 	};
 
 	return (

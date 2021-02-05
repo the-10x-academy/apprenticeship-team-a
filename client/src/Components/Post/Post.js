@@ -1,6 +1,6 @@
 import React from "react";
 import "./Post.css";
-function Post({ username, location, imageUrl, description, date }) {
+function Post({ username, location, image, description, date }) {
 	return (
 		<div className="">
 			<div className="post">
@@ -18,7 +18,11 @@ function Post({ username, location, imageUrl, description, date }) {
 					/>
 				</div>
 				{/* {postBody--> Image} */}
-				<img className="post__image" src={imageUrl} alt="loading" />
+				<img
+					className="post__image"
+					src={"http://localhost:9000/" + image}
+					alt="loading"
+				/>
 				<div className="post__footer">
 					{/* {post footer --> hearticon+shareIcon+date+likes+Caption} */}
 					<div className="post__footerUpper">
