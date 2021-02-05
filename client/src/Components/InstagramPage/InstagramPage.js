@@ -45,11 +45,13 @@ function InstagramPage() {
 				setPosts(result.postData);
 			});
 	}, []);
+
+	let postarray = [...posts].reverse();
 	return (
 		<div>
 			<Header />
 			<div className="InstaPagePosts">
-				{posts.map((post) => (
+				{postarray.map((post) => (
 					<Post
 						username={post.username}
 						location={post.location}
