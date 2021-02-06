@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./UploadPost.css";
+import Header from "../Header/Header";
+import { useHistory } from "react-router-dom";
 
 function UploadPost() {
 	const [filename, setFileName] = useState("");
@@ -7,6 +9,7 @@ function UploadPost() {
 	const [Location, setLocation] = useState("");
 	const [Description, setDescription] = useState("");
 	const [file, setFile] = useState("");
+	const history = useHistory();
 	const handleBrowse = (e) => {
 		setFile(e.target.files[0]);
 		setFileName(e.target.files[0].name);
@@ -22,7 +25,7 @@ function UploadPost() {
 		setDescription(e.target.value);
 	};
 
-	const postDetails = () => {
+	const postDetails = async (e) => {
 		console.log("clicked");
 		const data = new FormData();
 		data.append("image", file);
@@ -47,49 +50,55 @@ function UploadPost() {
 		// setDescription("");
 	};
 
+	const navigate = async (e) => {
+		history.push("/posts");
+	};
+
 	return (
-		<div className="display">
-			{/* <form action="/upload" method="post" encType="multipart/form-data"> */}
-			<div className="imageurl">
-				<input className="text" placeholder="Choose file" value={filename} />
-				<input
-					type="file"
-					className="browse"
-					name="image"
-					id="image"
-					onChange={handleBrowse}
-					hidden
-				/>
-				<label className="Filelabel" htmlFor="image">
-					Browse
-				</label>
-			</div>
+		<div>
+			<Header />
+			<div className="display">
+				{/* <form action="/upload" method="post" encType="multipart/form-data"> */}
+				<div className="imageurl">
+					<input className="text" placeholder="Choose file" value={filename} />
+					<input
+						type="file"
+						className="browse"
+						name="image"
+						id="image"
+						onChange={handleBrowse}
+						hidden
+					/>
+					<label className="Filelabel" htmlFor="image">
+						Browse
+					</label>
+				</div>
 
-			<div className="middle">
-				<input
-					className="text1"
-					placeholder="Author"
-					name="username"
-					onChange={ChangeAut}
-				/>
-				<input
-					className="text2"
-					placeholder="Location"
-					name="location"
-					onChange={ChangeLoca}
-				/>
-			</div>
+				<div className="middle">
+					<input
+						className="text1"
+						placeholder="Author"
+						name="username"
+						onChange={ChangeAut}
+					/>
+					<input
+						className="text2"
+						placeholder="Location"
+						name="location"
+						onChange={ChangeLoca}
+					/>
+				</div>
 
-			<div className="end">
-				<input
-					className="text3"
-					placeholder="Description"
-					name="description"
-					onChange={ChangeDesc}
-				/>
-			</div>
+				<div className="end">
+					<input
+						className="text3"
+						placeholder="Description"
+						name="description"
+						onChange={ChangeDesc}
+					/>
+				</div>
 
-			{/* <div>
+				{/* <div>
 					<ActivePost
 						postDetails={postDetails()}
 						Image={filename}
@@ -98,23 +107,27 @@ function UploadPost() {
 						Description={Description}
 					/>
 				</div> */}
-			<div className="Activepost">
-				<button
-					type="submit"
-					onClick={() => postDetails()}
-					className={
-						Author !== "" &&
-						Location !== "" &&
-						Description !== "" &&
-						filename !== ""
-							? "Activepostbutton"
-							: "postbutton"
-					}
-				>
-					Post
-				</button>
+				<div className="Activepost">
+					<button
+						type="submit"
+						onClick={() => {
+							postDetails();
+							navigate();
+						}}
+						className={
+							Author !== "" &&
+							Location !== "" &&
+							Description !== "" &&
+							filename !== ""
+								? "Activepostbutton"
+								: "postbutton"
+						}
+					>
+						Post
+					</button>
+				</div>
+				{/* </form> */}
 			</div>
-			{/* </form> */}
 		</div>
 	);
 }
