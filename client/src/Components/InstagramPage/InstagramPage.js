@@ -38,12 +38,15 @@ function InstagramPage() {
 	]);
 
 	useEffect(() => {
-		fetch("http://localhost:9000/posts")
-			.then((response) => response.json())
-			.then((result) => {
-				console.log(result);
-				setPosts(result.postData);
-			});
+		setTimeout(
+			fetch("http://localhost:9000/post")
+				.then((response) => response.json())
+				.then((result) => {
+					console.log(result);
+					setPosts(result.postData);
+				}),
+			10,
+		);
 	}, []);
 
 	let postarray = [...posts].reverse();

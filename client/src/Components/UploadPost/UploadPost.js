@@ -60,7 +60,12 @@ function UploadPost() {
 			<div className="display">
 				{/* <form action="/upload" method="post" encType="multipart/form-data"> */}
 				<div className="imageurl">
-					<input className="text" placeholder="Choose file" value={filename} />
+					<input
+						className="text"
+						placeholder="Choose file"
+						value={filename}
+						readOnly
+					/>
 					<input
 						type="file"
 						className="browse"
