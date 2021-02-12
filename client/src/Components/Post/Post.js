@@ -1,6 +1,24 @@
 import React from "react";
 import "./Post.css";
 function Post({ username, location, image, description, date }) {
+	const months = [
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"June",
+		"July",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec",
+	];
+	const D = date.slice(8, 10);
+	const M = months[parseInt(date.slice(5, 7)) - 1];
+	const Y = date.slice(0, 4);
+
 	return (
 		<div className="">
 			<div className="post">
@@ -38,7 +56,7 @@ function Post({ username, location, image, description, date }) {
 								alt="shareIcon"
 							/>
 						</div>
-						{date}
+						<div className="post__date">{D + " " + M + " " + Y}</div>
 					</div>
 					<div className="post__footerMiddle">
 						<p>64 likes</p>

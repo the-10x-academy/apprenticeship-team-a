@@ -60,7 +60,7 @@ function InstagramPage() {
 						location={post.location}
 						image={post.image}
 						description={post.description}
-						date={post.date}
+						date={post.timestamp}
 					/>
 				))}
 				<h3>
