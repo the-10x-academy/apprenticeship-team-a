@@ -93,3 +93,7 @@
 	color: #000000;
 	opacity: 1;
 }
+
+.post__footerUpper-heartIcon:hover {
+	background-color: #ffffff;
+}

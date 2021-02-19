@@ -93,4 +93,10 @@ router.post("/post", upload.single("image"), (req, res, next) => {
 
 /* getiing post from db */
 
+router.put("/like/:id", async function (req, res, next) {
+	const changeLikes = await Post.findById(req.params.id);
+	changeLikes.likes = changeLikes.likes + 1;
+	await changeLikes.save();
+});
+
 module.exports = router;

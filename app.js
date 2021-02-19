@@ -13,10 +13,13 @@ const app = express();
 
 //dbConfig
 mongoose
-	.connect("mongodb://localhost:27017/instagramClone", {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
+	.connect(
+		"mongodb+srv://MediaConnect:mediaconnect@feb1921.dlpbg.mongodb.net/instagramClone",
+		{
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		},
+	)
 	.then(() => console.log("db connection Successful"))
 	.catch((err) => console.log(err));
 // view engine setup

@@ -10,6 +10,7 @@ function UploadPost() {
 	const [Description, setDescription] = useState("");
 	const [file, setFile] = useState("");
 	const history = useHistory();
+
 	const handleBrowse = (e) => {
 		setFile(e.target.files[0]);
 		setFileName(e.target.files[0].name);
@@ -25,14 +26,13 @@ function UploadPost() {
 		setDescription(e.target.value);
 	};
 
-	const postDetails = async (e) => {
+	const postDetails = () => {
 		console.log("clicked");
 		const data = new FormData();
 		data.append("image", file);
 		data.append("description", Description);
 		data.append("username", Author);
 		data.append("location", Location);
-
 		fetch("http://localhost:9000/post", {
 			method: "POST",
 			body: data,
@@ -50,7 +50,7 @@ function UploadPost() {
 		// setDescription("");
 	};
 
-	const navigate = async (e) => {
+	const navigate = () => {
 		history.push("/posts");
 	};
 
@@ -126,6 +126,14 @@ function UploadPost() {
 							filename !== ""
 								? "Activepostbutton"
 								: "postbutton"
+						}
+						disabled={
+							Author !== "" &&
+							Location !== "" &&
+							Description !== "" &&
+							filename !== ""
+								? false
+								: true
 						}
 					>
 						Post

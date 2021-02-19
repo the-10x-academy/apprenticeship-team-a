@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
-function Post({ username, location, image, description, date }) {
+function Post({
+	username,
+	location,
+	image,
+	description,
+	date,
+	dblikes,
+	postId,
+}) {
 	const months = [
 		"Jan",
 		"Feb",
@@ -18,6 +26,26 @@ function Post({ username, location, image, description, date }) {
 	const D = date.slice(8, 10);
 	const M = months[parseInt(date.slice(5, 7)) - 1];
 	const Y = date.slice(0, 4);
+	const [likes, setLikes] = useState(dblikes);
+	const [likestatus, setLikeStatus] = useState(false);
+	const handleLikes = (likes) => {
+		if (!likestatus) {
+			setLikeStatus(true);
+			setLikes(likes + 1);
+			const url = "http://localhost:9000/like/" + `${postId}`;
+			console.log(url);
+			console.log(likes);
+			fetch(url, {
+				method: "PUT",
+				body: { likes },
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					console.log(data);
+				});
+			console.log(postId);
+		}
+	};
 
 	return (
 		<div className="">
@@ -47,8 +75,9 @@ function Post({ username, location, image, description, date }) {
 						<div className="post__footerUpper-Icons">
 							<img
 								className="post__footerUpper-heartIcon"
-								src="/heartIcon.png"
+								src={!likestatus ? "/heartIcon.png" : "/heartIcon2.png"}
 								alt="heartIcon"
+								onClick={() => handleLikes(likes)}
 							/>
 							<img
 								className="post__footerUpper-shareIcon"
@@ -56,10 +85,10 @@ function Post({ username, location, image, description, date }) {
 								alt="shareIcon"
 							/>
 						</div>
-						<div className="post__date">{D + " " + M + " " + Y}</div>
+						<div className="date">{D + " " + M + " " + Y}</div>
 					</div>
 					<div className="post__footerMiddle">
-						<p>64 likes</p>
+						<p>{likes} likes</p>
 					</div>
 					<h4 className="post__caption">{description}</h4>
 				</div>
