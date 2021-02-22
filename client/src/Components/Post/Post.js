@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Dropdown } from "react-bootstrap";
 import "./Post.css";
 function Post({
 	username,
@@ -68,13 +69,44 @@ function Post({
 						<h3>{username}</h3>
 						<p>{location}</p>
 					</div>
+					<Dropdown drop="down">
+						<Dropdown.Toggle
+							className="dropdown__button"
+							variant="success"
+							id="dropdown-basic"
+						>
+							<img
+								className="post__headerMoreIcon"
+								src="/moreIcon.png"
+								alt="moreIcon"
+							/>
+						</Dropdown.Toggle>
 
-					<img
-						className="post__headerMoreIcon"
-						src="/moreIcon.png"
-						alt="moreIcon"
-						onClick={() => handleDelete(postId)}
-					/>
+						<Dropdown.Menu className="dropdown__menu">
+							<Dropdown.Item
+								style={{ textDecoration: "none" }}
+								className="dropdown__item"
+								onClick={() => handleDelete(postId)}
+							>
+								Delete
+							</Dropdown.Item>
+							<br />
+							<Dropdown.Item
+								style={{ textDecoration: "none" }}
+								className="dropdown__item"
+							>
+								Update
+							</Dropdown.Item>
+							<br />
+							<Dropdown.Item
+								style={{ textDecoration: "none" }}
+								className="dropdown__item"
+							>
+								More
+							</Dropdown.Item>
+							<br />
+						</Dropdown.Menu>
+					</Dropdown>
 				</div>
 				{/* {postBody--> Image} */}
 				<img
