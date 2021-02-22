@@ -32,7 +32,7 @@ function Post({
 		if (!likestatus) {
 			setLikeStatus(true);
 			setLikes(likes + 1);
-			const url = "http://localhost:9000/like/" + `${postId}`;
+			const url = "https://media-connect.herokuapp.com/like" + `${postId}`;
 			console.log(url);
 			console.log(likes);
 			fetch(url, {
@@ -45,6 +45,18 @@ function Post({
 				});
 			console.log(postId);
 		}
+	};
+	const handleDelete = (id) => {
+		fetch("https://media-connect.herokuapp.com/delete" + `${id}`, {
+			method: "delete",
+		})
+			.then((res) => {
+				res.json();
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+		console.log("delete post");
 	};
 
 	return (
@@ -61,12 +73,13 @@ function Post({
 						className="post__headerMoreIcon"
 						src="/moreIcon.png"
 						alt="moreIcon"
+						onClick={() => handleDelete(postId)}
 					/>
 				</div>
 				{/* {postBody--> Image} */}
 				<img
 					className="post__image"
-					src={"http://localhost:9000/" + image}
+					src={"https://media-connect.herokuapp.com" + image}
 					alt="loading"
 				/>
 				<div className="post__footer">

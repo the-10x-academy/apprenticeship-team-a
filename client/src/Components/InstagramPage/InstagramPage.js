@@ -5,18 +5,37 @@ import Header from "../Header/Header";
 function InstagramPage() {
 	const [posts, setPosts] = useState([]);
 	const [Loading, setLoading] = useState(false);
-	let postarray = [];
-	useEffect(() => {
-		fetch("http://localhost:9000/post")
+
+	/* async function callAPI() {
+		const res = await fetch("http://localhost:9000/post");
+		res.json();
+		return res.json();
+
+	}
+
+	useEffect( () => {
+
+		const posts = callAPI();
+
+		await fetch("http://localhost:9000/post")
 			.then((response) => response.json())
 			.then((result) => {
 				console.log(result);
+				console.log(result.postData.length);
 				setPosts(result.postData);
 				setLoading(true);
 			});
+	}, []); */
+	async function fetchposts() {
+		const res = await fetch("https://media-connect.herokuapp.com/post");
+		res.json().then((res) => setPosts(res.postData), setLoading(true));
+	}
+	useEffect(() => {
+		fetchposts();
 	}, []);
-	postarray = [...posts].reverse();
-	if (!Loading || postarray.length === 0) {
+
+	let postsArray = [...posts];
+	if (!Loading || postsArray.length === 0) {
 		return (
 			<div>
 				<Header />
@@ -30,8 +49,9 @@ function InstagramPage() {
 		<div>
 			<Header />
 			<div className="InstaPagePosts">
-				{postarray.map((post) => (
+				{postsArray.map((post) => (
 					<Post
+						key={post.id}
 						username={post.username}
 						location={post.location}
 						image={post.image}

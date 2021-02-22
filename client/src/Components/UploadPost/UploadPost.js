@@ -37,7 +37,9 @@ function UploadPost() {
 			method: "POST",
 			body: data,
 		})
-			.then((res) => res.json())
+			.then(() => {
+				history.push("/posts");
+			})
 			.then((data) => {
 				console.log(data);
 			});
@@ -48,10 +50,6 @@ function UploadPost() {
 		// // setAuthor("");
 		// setLocation("");
 		// setDescription("");
-	};
-
-	const navigate = () => {
-		history.push("/posts");
 	};
 
 	return (
@@ -117,7 +115,6 @@ function UploadPost() {
 						type="submit"
 						onClick={() => {
 							postDetails();
-							navigate();
 						}}
 						className={
 							Author !== "" &&

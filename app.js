@@ -11,7 +11,7 @@ const indexRouter = require("./routes/index");
 
 const app = express();
 
-//dbConfig
+//dbConfig  MONGO ATLAS  mongodb+srv://MediaConnect:mediaconnect@feb1921.dlpbg.mongodb.net "mongodb://localhost:27017/MyDb"
 mongoose
 	.connect(
 		"mongodb+srv://MediaConnect:mediaconnect@feb1921.dlpbg.mongodb.net/instagramClone",

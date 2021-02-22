@@ -99,4 +99,11 @@ router.put("/like/:id", async function (req, res, next) {
 	await changeLikes.save();
 });
 
+router.delete("/delete/:id", async function (req, res, next) {
+	const id = req.params.id;
+	await Post.findByIdAndDelete(id).then((res) => {
+		res.json().status(200);
+	});
+});
+
 module.exports = router;
