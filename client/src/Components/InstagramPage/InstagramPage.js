@@ -26,7 +26,9 @@ function InstagramPage() {
 				setLoading(true);
 			});
 	}, []); */
+
 	async function fetchposts() {
+		setPosts([]);
 		const res = await fetch("https://media-connect.herokuapp.com/post");
 		res.json().then((res) => setPosts(res.postData), setLoading(true));
 	}
@@ -34,6 +36,19 @@ function InstagramPage() {
 		fetchposts();
 	}, []);
 
+	const handleDelete = (id) => {
+		console.log("in handle delete function");
+		fetch("https://media-connect.herokuapp.com/delete/" + `${id}`, {
+			method: "delete",
+		})
+			.then(fetchposts())
+			.catch((err) => {
+				console.log(err);
+			});
+		console.log("delete post");
+		fetchposts();
+		console.log("setting data to other variable /outside/ ");
+	};
 	let postsArray = [...posts];
 	if (!Loading || postsArray.length === 0) {
 		return (
@@ -59,6 +74,7 @@ function InstagramPage() {
 						date={post.timestamp}
 						dblikes={post.likes}
 						postId={post._id}
+						fetchpost={handleDelete}
 					/>
 				))}
 			</div>

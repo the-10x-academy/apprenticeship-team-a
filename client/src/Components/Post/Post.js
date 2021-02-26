@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./Post.css";
 function Post({
 	username,
@@ -8,6 +9,7 @@ function Post({
 	date,
 	dblikes,
 	postId,
+	fetchpost,
 }) {
 	const months = [
 		"Jan",
@@ -28,11 +30,13 @@ function Post({
 	const Y = date.slice(0, 4);
 	const [likes, setLikes] = useState(dblikes);
 	const [likestatus, setLikeStatus] = useState(false);
+	const [Dropopen, setDropOpen] = useState(false);
+	const [InfoStatus, setInfoStatus] = useState(false);
 	const handleLikes = (likes) => {
 		if (!likestatus) {
 			setLikeStatus(true);
 			setLikes(likes + 1);
-			const url = "https://media-connect.herokuapp.com/like" + `${postId}`;
+			const url = "https://media-connect.herokuapp.com/like/" + `${postId}`;
 			console.log(url);
 			console.log(likes);
 			fetch(url, {
@@ -46,18 +50,20 @@ function Post({
 			console.log(postId);
 		}
 	};
-	const handleDelete = (id) => {
-		fetch("https://media-connect.herokuapp.com/delete" + `${id}`, {
+	/* const handleDelete = (id) => {
+		console.log("in handle Delete Function ");
+		fetch("https://media-connect.herokuapp.com/delete/" + `${id}`, {
 			method: "delete",
 		})
 			.then((res) => {
+				fetchpost();
 				res.json();
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 		console.log("delete post");
-	};
+	}; */
 
 	return (
 		<div className="">
@@ -68,13 +74,72 @@ function Post({
 						<h3>{username}</h3>
 						<p>{location}</p>
 					</div>
-
 					<img
 						className="post__headerMoreIcon"
 						src="/moreIcon.png"
 						alt="moreIcon"
-						onClick={() => handleDelete(postId)}
+						onClick={() => {
+							setDropOpen(!Dropopen);
+							setInfoStatus(false);
+						}}
 					/>
+					{Dropopen && (
+						<div className="dropdown">
+							<ul>
+								<li onClick={() => setInfoStatus(!InfoStatus)}>Info</li>
+								<li className="post__delete" onClick={() => fetchpost(postId)}>
+									Delete
+								</li>
+							</ul>
+						</div>
+					)}
+					{InfoStatus && (
+						<div className="dropdown">
+							<ul>
+								<li>Author---{username}</li>
+								<li>likes----{likes}</li>
+								<li>DOP------{D + " " + M}</li>
+							</ul>
+						</div>
+					)}
+					{/* <Dropdown drop="down">
+						<Dropdown.Toggle
+							className="dropdown__button"
+							variant="success"
+							id="dropdown-basic"
+						>
+							<img
+								className="post__headerMoreIcon"
+								src="/moreIcon.png"
+								alt="moreIcon"
+							/>
+						</Dropdown.Toggle>
+
+						<Dropdown.Menu className="dropdown__menu">
+							<Dropdown.Item
+								style={{ textDecoration: "none" }}
+								className="dropdown__item"
+								onClick={() => handleDelete(postId)}
+							>
+								Delete
+							</Dropdown.Item>
+							<br />
+							<Dropdown.Item
+								style={{ textDecoration: "none" }}
+								className="dropdown__item"
+							>
+								Update
+							</Dropdown.Item>
+							<br />
+							<Dropdown.Item
+								style={{ textDecoration: "none" }}
+								className="dropdown__item"
+							>
+								More
+							</Dropdown.Item>
+							<br />
+						</Dropdown.Menu>
+					</Dropdown> */}
 				</div>
 				{/* {postBody--> Image} */}
 				<img
