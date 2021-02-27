@@ -14,7 +14,7 @@ const app = express();
 //dbConfig  MONGO ATLAS  mongodb+srv://MediaConnect:mediaconnect@feb1921.dlpbg.mongodb.net "mongodb://localhost:27017/MyDb"
 mongoose
 	.connect(
-		"mongodb+srv://MediaConnect:mediaconnect@feb1921.dlpbg.mongodb.net/instagramClone",
+		"mongodb+srv://MediaConnect:MediaConnect@cluster0.dd58v.mongodb.net/MediaConnect?retryWrites=true&w=majority",
 		{
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
