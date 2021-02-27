@@ -29,7 +29,7 @@ function InstagramPage() {
 
 	async function fetchposts() {
 		setPosts([]);
-		const res = await fetch("https://media-connect.herokuapp.com/post");
+		const res = await fetch("https://mediaconnect.herokuapp.com/post");
 		res.json().then((res) => setPosts(res.postData), setLoading(true));
 	}
 	useEffect(() => {
@@ -38,7 +38,7 @@ function InstagramPage() {
 
 	const handleDelete = (id) => {
 		console.log("in handle delete function");
-		fetch("https://media-connect.herokuapp.com/delete/" + `${id}`, {
+		fetch("https://mediaconnect.herokuapp.com/delete/" + `${id}`, {
 			method: "delete",
 		})
 			.then(fetchposts())

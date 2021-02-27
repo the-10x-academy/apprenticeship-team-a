@@ -33,7 +33,7 @@ function UploadPost() {
 		data.append("description", Description);
 		data.append("username", Author);
 		data.append("location", Location);
-		fetch("http://localhost:9000/post", {
+		fetch("https://mediaconnect.herokuapp.com/post", {
 			method: "POST",
 			body: data,
 		})

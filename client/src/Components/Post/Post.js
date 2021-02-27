@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./Post.css";
 function Post({
 	username,
@@ -36,7 +35,7 @@ function Post({
 		if (!likestatus) {
 			setLikeStatus(true);
 			setLikes(likes + 1);
-			const url = "https://media-connect.herokuapp.com/like/" + `${postId}`;
+			const url = "https://mediaconnect.herokuapp.com/like/" + `${postId}`;
 			console.log(url);
 			console.log(likes);
 			fetch(url, {
@@ -144,7 +143,7 @@ function Post({
 				{/* {postBody--> Image} */}
 				<img
 					className="post__image"
-					src={"https://media-connect.herokuapp.com" + image}
+					src={"https://mediaconnect.herokuapp.com/" + image}
 					alt="loading"
 				/>
 				<div className="post__footer">
