@@ -60,11 +60,13 @@ function InstagramPage() {
 			</div>
 		);
 	}
+
 	return (
 		<div>
 			<Header />
 			<div className="InstaPagePosts">
 				{postsArray.map((post) => (
+
 					<Post
 						key={post.id}
 						username={post.username}
@@ -77,6 +79,7 @@ function InstagramPage() {
 						fetchpost={handleDelete}
 					/>
 				))}
+
 			</div>
 		</div>
 	);
